@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #FDFDFD;  /* butter-brown-50 fallback */
+  color: #333333;  /* warm-gray-900 fallback */
+  line-height: 1.6;
+}
+
+/* Fallbacks for custom colors if Tailwind purge skips (enhanced with more variants) */
+.bg-butter-brown-50 { background-color: #FDFDFD !important; }
+.bg-butter-brown-100 { background-color: #F5F5F5 !important; }
+.bg-butter-brown-500 { background-color: #D4A574 !important; }
+.bg-butter-brown-600 { background-color: #B8946A !important; }
+.bg-butter-brown-700 { background-color: #A67C00 !important; }
+.text-butter-brown-500 { color: #D4A574 !important; }
+.text-warm-gray-900 { color: #333333 !important; }
+.shadow-soft { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; }
+.hover\:bg-butter-brown-600:hover { background-color: #B8946A !important; }
+.focus\:ring-butter-brown-500\/20:focus { box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2) !important; }
+.focus\:border-butter-brown-500:focus { border-color: #D4A574 !important; }
+
+/* Gradient fallback for landing page */
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #D4A574, #F5F5F5, #FDFDFD) !important;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-butter-brown-500 text-white px-8 py-4 rounded-md shadow-soft hover:bg-butter-brown-600 transition-colors flex items-center justify-center space-x-3;  /* Updated px/py/space-x for gap */
+    line-height: 1.6;  /* More vertical space */
+    min-height: 56px;  /* Ensures tall enough for icon */
+  }
+  .card {
+    @apply bg-butter-brown-100 p-6 rounded-lg shadow-soft;
+  }
+  input, button, select {
+    @apply border-gray-300 focus:border-butter-brown-500 focus:ring-2 focus:ring-butter-brown-500/20 rounded-md transition-colors;
+  }
+  /* Landing page enhancements */
+  h1 {
+    @apply text-4xl md:text-6xl font-bold text-warm-gray-900 mb-4;
+  }
+  p {
+    @apply text-xl text-gray-600 max-w-md mb-8;
+  }
+  a {
+    @apply text-butter-brown-500 hover:underline font-medium transition-colors;
+  }
+  img {
+    @apply rounded-lg shadow-soft max-w-full h-auto;
+  }
+}
